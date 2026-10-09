@@ -1,0 +1,63 @@
+\documentclass{iselthesis}
+
+\usepackage{tikz}
+\usepackage{sintax-highlight}
+
+\begin{document}
+
+% ----------------------------------------------------------------------
+% Front Matter (Paginação em numeração romana minúscula - Norma 9a)
+% ----------------------------------------------------------------------
+\pagenumbering{roman}
+
+% Capa (Página 1 - sem numeração)
+\include{./tex/cover}
+
+% Subcapa (Página 2 - sem numeração)
+\include{./tex/titlepage}
+
+% Agradecimentos (Página 3 - Norma 4)
+\include{./tex/acknowledgements}
+
+% Declaração de Integridade (Página 4 - Norma 5)
+\include{./tex/integrity}
+
+% Resumo em Português e Palavras-chave (Norma 6)
+\include{./tex/resumo}
+
+% Abstract em Inglês e Keywords (Norma 7)
+\include{./tex/abstract}
+
+% Índices (Norma 8)
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+\lstlistoflistings
+\newpage
+\include{./tex/acronyms}
+
+% ----------------------------------------------------------------------
+% Main Matter (Paginação em algarismos árabes, reinicia no 1 - Norma 9b)
+% ----------------------------------------------------------------------
+\cleardoublepage
+\pagenumbering{arabic}
+
+\include{./tex/chap1-intro}
+\include{./tex/chap2-Background}
+\include{./tex/chap3-impl}
+\include{./tex/chap4-evaluation}
+\include{./tex/chap5-conclusions}
+
+% ----------------------------------------------------------------------
+% Back Matter (Referências Bibliográficas - Norma 10: espaçamento 1)
+% ----------------------------------------------------------------------
+\newpage
+\begin{singlespace}
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+\end{singlespace}
+
+\end{document}

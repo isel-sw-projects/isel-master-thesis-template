@@ -1,0 +1,64 @@
+\chapter{Implementation}
+
+This chapter provides full details about the implementation of the system.
+
+Below are code examples written in HTML, Java, and Kotlin, each containing approximately 10 lines with syntax highlighting.
+
+\section{Code Examples}
+
+\subsection{HTML Listing}
+Listing~\ref{lst:html_example} presents a standard HTML structure for a web application interface.
+
+\begin{lstlisting}[language=HTML, caption={Sample HTML structure for thesis dashboard.}, label={lst:html_example}]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ISEL Dissertation Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <h1>Master Dissertation System</h1>
+    </header>
+</body>
+</html>
+\end{lstlisting}
+
+\subsection{Java Listing}
+Listing~\ref{lst:java_example} illustrates a Java service class handling student data.
+
+\begin{lstlisting}[language=Java, caption={Sample Java service implementation.}, label={lst:java_example}]
+package pt.ipl.isel.thesis;
+
+import java.util.List;
+import java.util.ArrayList;
+
+public class StudentService {
+    private final List<String> students = new ArrayList<>();
+
+    public void addStudent(String name) {
+        if (name != null && !name.isBlank()) {
+            students.add(name);
+        }
+    }
+}
+\end{lstlisting}
+
+\subsection{Kotlin Listing}
+Listing~\ref{lst:kotlin_example} demonstrates a Kotlin data model and repository interaction.
+
+\begin{lstlisting}[language=Kotlin, caption={Sample Kotlin data class and repository.}, label={lst:kotlin_example}]
+package pt.ipl.isel.thesis
+
+data class Dissertation(
+    val id: Long,
+    val title: String,
+    val isApproved: Boolean = false
+)
+
+class DissertationRepository {
+    private val items = mutableListOf<Dissertation>()
+    fun findById(id: Long): Dissertation? = items.find { it.id == id }
+}
+\end{lstlisting}
