@@ -41,24 +41,36 @@
 % Headers and Footers (Norma 11: Sem cabeçalho nem rodapé, exceto paginação no centro)
 \pagestyle{plain}
 
+% ISEL font colors
+\definecolor{ISELRed}{HTML}{FF3C28}
+\definecolor{ISELPurple}{HTML}{5F1437}
+
+% Cover and title page text; the color is local to the titlepage environment.
+\AddToHook{env/titlepage/begin}{\color{ISELPurple}}
+
 % Chapter, Title and Subtitle formatting (Normas 12 e 13)
-% Norma 12: Capítulos tamanho 14, cor preta, bold, em CAPS LOCK
+% Norma 12: Capítulos tamanho 14, vermelho ISEL, bold, em CAPS LOCK
 \titleformat{\chapter}[block]
-  {\normalfont\fontsize{14pt}{18pt}\bfseries\color{black}}
+  {\normalfont\fontsize{14pt}{18pt}\bfseries\color{ISELRed}}
   {\thechapter.}{0.5em}{\MakeUppercase}
 \titlespacing*{\chapter}{0pt}{0pt}{12pt}
 
-% Norma 13: Títulos (Section) tamanho 12, cor preta, bold
+% Norma 13: Títulos (Section) tamanho 12, púrpura ISEL, bold
 \titleformat{\section}
-  {\normalfont\fontsize{12pt}{15pt}\bfseries\color{black}}
+  {\normalfont\fontsize{12pt}{15pt}\bfseries\color{ISELPurple}}
   {\thesection}{0.5em}{}
 \titlespacing*{\section}{0pt}{12pt}{6pt}
 
-% Norma 13: Subtítulos (Subsection) tamanho 11, cor preta, bold
+% Norma 13: Subtítulos (Subsection) tamanho 11, púrpura ISEL, bold
 \titleformat{\subsection}
-  {\normalfont\fontsize{11pt}{14pt}\bfseries\color{black}}
+  {\normalfont\fontsize{11pt}{14pt}\bfseries\color{ISELPurple}}
   {\thesubsection}{0.5em}{}
 \titlespacing*{\subsection}{0pt}{12pt}{6pt}
+
+% Subsubsection headings use the same ISEL purple
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{ISELPurple}}
+  {\thesubsubsection}{1em}{}
 
 % Captions (Norma 14: Tamanho 9, cor preta, espaçamento entre linhas 1cm/1.0)
 \DeclareCaptionFont{capfont}{\fontsize{9pt}{11pt}\selectfont\color{black}}
